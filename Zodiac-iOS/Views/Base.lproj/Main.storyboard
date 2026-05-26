@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Zodiac-Iconos/aquarius" translatesAutoresizingMaskIntoConstraints="NO" id="22H-A1-K84">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aquarius" translatesAutoresizingMaskIntoConstraints="NO" id="22H-A1-K84">
                                                     <rect key="frame" x="20" y="13" width="60" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -45,11 +45,17 @@
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7rO-BT-Y3d">
+                                                    <rect key="frame" x="333" y="24" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="datesLabel" destination="tvr-Mx-Z5B" id="lK0-1N-qqv"/>
-                                            <outlet property="horoscopeImagenView" destination="22H-A1-K84" id="R9R-dm-h85"/>
+                                            <outlet property="favoriteImageView" destination="7rO-BT-Y3d" id="u0H-K2-4Ug"/>
+                                            <outlet property="horoscopeImageView" destination="22H-A1-K84" id="2v9-iG-cMK"/>
                                             <outlet property="nameLabel" destination="hhy-ED-oVr" id="XTR-MF-akH"/>
                                             <segue destination="TU8-Nr-5Fh" kind="show" identifier="Show Detail" id="CKT-64-Dxr"/>
                                         </connections>
@@ -118,9 +124,24 @@
                             <constraint firstItem="ybJ-kV-qzr" firstAttribute="top" secondItem="Per-2b-9rR" secondAttribute="top" id="nae-k1-Gxo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WhV-rH-XHm"/>
+                    <navigationItem key="navigationItem" id="WhV-rH-XHm">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Favorite" image="heart.fill" catalog="system" id="Az4-YV-Q7x">
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="favoriteMenuClicked:" destination="TU8-Nr-5Fh" id="uqI-Xi-j3M"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="ycI-8c-W39">
+                                <connections>
+                                    <action selector="shareMenuClicked:" destination="TU8-Nr-5Fh" id="ilu-1e-usX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="datesLabel" destination="tEO-nM-4cr" id="R5U-Qn-jUl"/>
+                        <outlet property="favoriteMenuItem" destination="Az4-YV-Q7x" id="yCG-f2-Yhr"/>
                         <outlet property="horoscopeImageView" destination="vtY-60-3Fe" id="4hW-eV-7ar"/>
                         <outlet property="nameLabel" destination="521-FN-CqN" id="iSl-vl-Uoi"/>
                     </connections>
@@ -149,12 +170,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Zodiac-Iconos/aquarius" width="496.15798950195312" height="496.15798950195312"/>
+        <image name="aquarius" width="496.15798950195312" height="496.15798950195312"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

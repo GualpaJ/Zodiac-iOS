@@ -9,15 +9,22 @@ import UIKit
 
 class HoroscopeViewCell: UITableViewCell {
 
-    @IBOutlet weak var horoscopeImagenView: UIImageView!
+    @IBOutlet weak var horoscopeImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var datesLabel: UILabel!
+    
+    @IBOutlet weak var favoriteImageView: UIImageView!
+
     
     func render(horoscope: Horoscope){
         nameLabel.text = horoscope.name
         datesLabel.text = horoscope.dates
-        horoscopeImagenView.image = horoscope.getImage()
+        horoscopeImageView.image = horoscope.getImage()
+        
+        favoriteImageView.isHidden = !SessionManager().isFavoriteHoroscope(id: horoscope.id)
     }
+    
+    
     
     /*override func awakeFromNib() {
         super.awakeFromNib()
