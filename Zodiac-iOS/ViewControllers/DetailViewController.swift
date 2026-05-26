@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var datesLabel: UILabel!
     @IBOutlet weak var favoriteMenuItem: UIBarButtonItem!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     
     let session = SessionManager()
     
@@ -29,6 +31,11 @@ class DetailViewController: UIViewController {
         nameLabel.text = horoscope.name
         datesLabel.text = horoscope.dates
         horoscopeImageView.image = horoscope.getImage()
+        descriptionLabel.text = horoscope.description
+        
+        descriptionLabel.sizeToFit()
+           descriptionLabel.setContentHuggingPriority(.required, for: .vertical)
+           descriptionLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         
         isFavorite = session.isFavoriteHoroscope(id: horoscope.id)
         setFavoriteIcon()
