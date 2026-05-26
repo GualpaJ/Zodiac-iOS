@@ -33,9 +33,7 @@ class DetailViewController: UIViewController {
         horoscopeImageView.image = horoscope.getImage()
         descriptionLabel.text = horoscope.description
         
-        descriptionLabel.sizeToFit()
-           descriptionLabel.setContentHuggingPriority(.required, for: .vertical)
-           descriptionLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        
         
         isFavorite = session.isFavoriteHoroscope(id: horoscope.id)
         setFavoriteIcon()
