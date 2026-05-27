@@ -14,7 +14,7 @@ struct Horoscope {
     let description: String
     
     func getImage() -> UIImage {
-        return UIImage(named: id)!  // ← Así funciona
+        return UIImage(named: id)!
     }
     
     

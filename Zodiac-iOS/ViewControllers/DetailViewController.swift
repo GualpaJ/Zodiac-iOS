@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var datesLabel: UILabel!
     @IBOutlet weak var favoriteMenuItem: UIBarButtonItem!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     
     let session = SessionManager()
@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
         nameLabel.text = horoscope.name
         datesLabel.text = horoscope.dates
         horoscopeImageView.image = horoscope.getImage()
-        descriptionLabel.text = horoscope.description
+        descriptionTextView.text = horoscope.description
         
         
         
